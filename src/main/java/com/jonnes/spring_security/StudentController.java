@@ -2,6 +2,8 @@ package com.jonnes.spring_security;
 
 
 import com.jonnes.spring_security.model.Student;
+import jakarta.servlet.http.HttpServletRequest;
+import org.springframework.security.web.csrf.CsrfToken;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -24,5 +26,10 @@ public class StudentController {
     @PostMapping("students")
     public void addStudents(@RequestBody Student student){
         students.add(student);
+    }
+
+    @GetMapping("csrf-token")
+    public CsrfToken getCsrfToken(HttpServletRequest request){
+        return (CsrfToken) request.getAttribute("_csrf");
     }
 }
