@@ -1,4 +1,4 @@
-package com.jonnes.spring_security;
+package com.jonnes.spring_security.controller;
 
 
 import com.jonnes.spring_security.model.Student;
