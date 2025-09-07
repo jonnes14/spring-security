@@ -2,6 +2,7 @@ package com.jonnes.spring_security.service;
 
 import com.jonnes.spring_security.dao.UserRepo;
 import com.jonnes.spring_security.model.User;
+import com.jonnes.spring_security.model.UserPrincipal;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -21,6 +22,6 @@ public class MyUserDetailsService implements UserDetailsService {
                 System.out.println("user not found");
                 throw new UsernameNotFoundException("User 404");
         }
-        return user;
+        return new UserPrincipal(user);
     }
 }
