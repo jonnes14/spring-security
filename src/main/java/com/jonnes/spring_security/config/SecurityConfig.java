@@ -38,7 +38,7 @@ public class SecurityConfig {
                 http
                     .csrf(customizer-> customizer.disable()) //disable the csrf
                     .authorizeHttpRequests(request-> request
-                            .requestMatchers("/register")
+                            .requestMatchers("/register","/login")
                             .permitAll()
                             .anyRequest()
                             .authenticated())

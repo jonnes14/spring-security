@@ -27,7 +27,8 @@ public class UserController {
 
     @PostMapping("login")
     public String login(@RequestBody User user){
-        Authentication authentication= authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(user.getUsername(),user.getPassword()));
+        Authentication authentication= authenticationManager
+                .authenticate(new UsernamePasswordAuthenticationToken(user.getUsername(),user.getPassword()));
 
         if(authentication.isAuthenticated()){
             return "Success";
